@@ -10,9 +10,30 @@
     </head>
     <body>
 
+        <main id="app">
+            <header>
+                <h1>TODO App</h1>
+            </header>
 
+            <ul id="todo-list">
+                <li class="todo-item">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox" class="title">Изучить JS</label>
+                    <input type="text" id="textfield">
+                    <div class="btn-container">
+                        <a class="btn">Change</a>
+                        <a class="btn">Delete</a>
+                    </div>
+                </li>
+            </ul>
+
+            <form class="todo-form">
+                <input type="text" id="add-input">
+                <a class="btn" id="add-button">Add</a>
+            </form>
+        </main>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="js/main.js" charset="utf-8"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

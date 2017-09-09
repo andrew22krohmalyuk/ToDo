@@ -26,3 +26,134 @@ div {
 * {
   box-sizing: border-box;
 }
+#app {
+  box-shadow: 0px 0px 52px -14px rgba(0, 0, 0, 0.4);
+  width: 750px;
+  margin: 50px auto;
+  border-radius: 5px;
+  overflow: hidden;
+}
+#app header {
+  margin-bottom: 25px;
+  background: #ffdd28;
+}
+#app header h1 {
+  font-family: 'Roboto';
+  color: #444;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 2em;
+}
+#app #todo-list .todo-item {
+  padding: 5px 15px;
+  display: inline-block;
+  width: 750px;
+  transition: all 0.1s ease-out;
+}
+#app #todo-list .todo-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+#app #todo-list .todo-item:hover #textfield {
+  background: #fff;
+}
+#app #todo-list .todo-item:hover .btn-container {
+  visibility: visible;
+}
+#app #todo-list .todo-item #checkbox {
+  -webkit-appearance: none;
+  appearence: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #aaa;
+  cursor: pointer;
+  border-radius: 3px;
+  position: relative;
+  top: 5px;
+}
+#app #todo-list .todo-item #checkbox:checked {
+  background: url(../img/icons/checked.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 85%;
+}
+#app #todo-list .todo-item .title {
+  font-family: 'Roboto';
+  color: #444;
+  font-size: 1.2em;
+}
+#app #todo-list .todo-item .title.hide {
+  visibility: hidden;
+}
+#app #todo-list .todo-item #textfield {
+  margin-left: 10px;
+  outline: none;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  border: transparent;
+  background: #eee;
+  padding: 7px 15px;
+  font-size: 1.2em;
+  color: #444;
+  width: 300px;
+  visibility: hidden;
+}
+#app #todo-list .todo-item #textfield.active {
+  visibility: visible;
+}
+#app #todo-list .todo-item .btn-container {
+  float: right;
+  display: inline-block;
+  position: relative;
+  top: 5px;
+  visibility: hidden;
+}
+#app #todo-list .todo-item .btn-container .btn {
+  font-family: 'Roboto';
+  color: #aaa;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 170%;
+}
+#app #todo-list .todo-item .btn-container .btn:hover {
+  color: #444;
+}
+#app .todo-form {
+  margin-top: 25px;
+  padding: 10px;
+  display: table;
+  width: 100%;
+}
+#app .todo-form #add-input {
+  display: table-cell;
+  width: 95%;
+  margin-left: 10px;
+  outline: none;
+  font-family: "Roboto";
+  box-sizing: border-box;
+  border: transparent;
+  background: #eee;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  color: #444;
+}
+#app .todo-form .btn {
+  display: table-cell;
+  width: 15%;
+  background: #ffdd28;
+  color: #444;
+  font-family: 'Roboto';
+  font-weight: bold;
+  padding: 5px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  text-align: center;
+  transition: background 0.2s ease-out;
+}
+#app .todo-form .btn:hover {
+  background: #bf9200;
+  color: #eee;
+}
