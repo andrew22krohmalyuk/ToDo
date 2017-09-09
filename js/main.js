@@ -18,6 +18,7 @@ function addTodoItem(event) {
     } else {
         const listItem = createTodoItem(addInput.value);
         todoList.appendChild(listItem);
+        console.log(listItem);
     }
 };
 
@@ -43,13 +44,21 @@ function createTodoItem(str) {
     const editInput = document.createElement('input');
     editInput.type = 'text';
     editInput.id = 'textfield';
-    //console.log(editInput);
 
     const btnContainer = document.createElement('div');
     btnContainer.classList.add('btn-container');
-    btnContainer.innerHTML = '<a class="btn">Change</a>'
-                            +'<a class="btn">Delete</a>';
-    //console.log(btnContainer);
+
+    const chngBtn = document.createElement('a');
+    chngBtn.classList.add('btn');
+    chngBtn.innerText = 'Change';
+
+    const dltBtn = document.createElement('a');
+    dltBtn.classList.add('btn');
+    dltBtn.innerText = 'Delete';
+
+    btnContainer.appendChild(chngBtn);
+    btnContainer.appendChild(dltBtn);
+
     const listItem = document.createElement('li');
     listItem.classList.add('todo-item');
 
