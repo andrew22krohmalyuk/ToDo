@@ -18,7 +18,6 @@ function addTodoItem(event) {
     } else {
         const listItem = createTodoItem(addInput.value);
         todoList.appendChild(listItem);
-        console.log(listItem);
     }
 };
 
@@ -44,16 +43,19 @@ function createTodoItem(str) {
     const editInput = document.createElement('input');
     editInput.type = 'text';
     editInput.id = 'textfield';
+    editInput.classList.add('textfield');
 
     const btnContainer = document.createElement('div');
     btnContainer.classList.add('btn-container');
 
     const chngBtn = document.createElement('a');
     chngBtn.classList.add('btn');
+    chngBtn.classList.add('change');
     chngBtn.innerText = 'Change';
 
     const dltBtn = document.createElement('a');
     dltBtn.classList.add('btn');
+    dltBtn.classList.add('delete');
     dltBtn.innerText = 'Delete';
 
     btnContainer.appendChild(chngBtn);
@@ -67,5 +69,46 @@ function createTodoItem(str) {
     listItem.appendChild(editInput);
     listItem.appendChild(btnContainer);
 
+    bindEvents(listItem);
+
     return listItem;
+}
+
+function bindEvents(todoItem) {
+    const checkbox = todoItem.querySelector('.checkbox');
+    const changeButton = todoItem.querySelector('.btn.change');
+    const deleteButton = todoItem.querySelector('.btn.delete');
+
+    checkbox.addEventListener('change', toggleTodoItem);
+    changeButton.addEventListener('click', editTodoItem);
+    deleteButton.addEventListener('click', deleteTodoItem);
+}
+
+function toggleTodoItem() {
+    const listItem = this.parentNode;
+    listItem.classList.toggle('completed');
+}
+
+function editTodoItem() {
+    const listItem = this.parentNode.parentNode;
+    const title = listItem.querySelector('.title');
+    const editInput = listItem.querySelector('#textfield');
+    const isActive = listItem.classList.contains('editing');
+    const changeBtn = this.parentNode.querySelector('.btn.change');
+
+    if(isActive) {
+        //console.log('Сохранили');
+        title.innerText = editInput.value;
+        changeBtn.innerText = 'Change';
+    } else {
+        //console.log('Редактируем');
+        editInput.value = title.innerText;
+        changeBtn.innerText = 'Save';
+    }
+    listItem.classList.toggle('editing');
+}
+
+function deleteTodoItem() {
+    const listItem = this.parentNode.parentNode;
+    todoList.removeChild(listItem);
 }
