@@ -62,7 +62,7 @@ div {
 #app #todo-list .todo-item:hover .btn-container {
   visibility: visible;
 }
-#app #todo-list .todo-item #checkbox {
+#app #todo-list .todo-item .checkbox {
   -webkit-appearance: none;
   appearence: none;
   outline: none;
@@ -74,7 +74,7 @@ div {
   position: relative;
   top: 5px;
 }
-#app #todo-list .todo-item #checkbox:checked {
+#app #todo-list .todo-item .checkbox:checked {
   background: url(../img/icons/checked.svg);
   background-position: center;
   background-repeat: no-repeat;

@@ -16,7 +16,9 @@ function addTodoItem(event) {
     if(addInput.value === '') {
         alert('on');
     } else {
-        
+        const listItem = createTodoItem(addInput.value);
+        todoList.appendChild(listItem);
+        console.log(listItem);
     }
 };
 
@@ -28,4 +30,42 @@ function alert(flag) {
         modalContainer.classList.remove('active');
         modalWindow.classList.remove('active');
     }
+};
+function createTodoItem(str) {
+    addInput.value = '';
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.classList.add('checkbox');
+
+    const label = document.createElement('label');
+    label.innerText = str;
+    label.classList.add('title');
+
+    const editInput = document.createElement('input');
+    editInput.type = 'text';
+    editInput.id = 'textfield';
+
+    const btnContainer = document.createElement('div');
+    btnContainer.classList.add('btn-container');
+
+    const chngBtn = document.createElement('a');
+    chngBtn.classList.add('btn');
+    chngBtn.innerText = 'Change';
+
+    const dltBtn = document.createElement('a');
+    dltBtn.classList.add('btn');
+    dltBtn.innerText = 'Delete';
+
+    btnContainer.appendChild(chngBtn);
+    btnContainer.appendChild(dltBtn);
+
+    const listItem = document.createElement('li');
+    listItem.classList.add('todo-item');
+
+    listItem.appendChild(checkbox);
+    listItem.appendChild(label);
+    listItem.appendChild(editInput);
+    listItem.appendChild(btnContainer);
+
+    return listItem;
 }
