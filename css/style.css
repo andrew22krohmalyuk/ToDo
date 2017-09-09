@@ -62,6 +62,27 @@ div {
 #app #todo-list .todo-item:hover .btn-container {
   visibility: visible;
 }
+#app #todo-list .todo-item.completed {
+  background: #27ae60;
+}
+#app #todo-list .todo-item.completed .checkbox {
+  border: 2px solid #fff;
+}
+#app #todo-list .todo-item.completed .checkbox:checked {
+  background: url(../img/icons/checked-white.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 85%;
+}
+#app #todo-list .todo-item.completed .title {
+  color: #fff;
+}
+#app #todo-list .todo-item.completed .btn-container .btn {
+  color: #fff;
+}
+#app #todo-list .todo-item.completed .btn-container .btn:hover {
+  color: #007c2e;
+}
 #app #todo-list .todo-item .checkbox {
   -webkit-appearance: none;
   appearence: none;
