@@ -43,6 +43,7 @@ function createTodoItem(str) {
     const editInput = document.createElement('input');
     editInput.type = 'text';
     editInput.id = 'textfield';
+    editInput.classList.add('textfield');
 
     const btnContainer = document.createElement('div');
     btnContainer.classList.add('btn-container');
@@ -89,9 +90,25 @@ function toggleTodoItem() {
 }
 
 function editTodoItem() {
-    console.log('edit');
+    const listItem = this.parentNode.parentNode;
+    const title = listItem.querySelector('.title');
+    const editInput = listItem.querySelector('#textfield');
+    const isActive = listItem.classList.contains('editing');
+    const changeBtn = this.parentNode.querySelector('.btn.change');
+
+    if(isActive) {
+        //console.log('Сохранили');
+        title.innerText = editInput.value;
+        changeBtn.innerText = 'Change';
+    } else {
+        //console.log('Редактируем');
+        editInput.value = title.innerText;
+        changeBtn.innerText = 'Save';
+    }
+    listItem.classList.toggle('editing');
 }
 
 function deleteTodoItem() {
-    console.log('delete');
+    const listItem = this.parentNode.parentNode;
+    todoList.removeChild(listItem);
 }

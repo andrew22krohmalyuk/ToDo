@@ -49,6 +49,7 @@ h1,h2,h3,h4,h5,h6,ul,li,p,a,div {
             display: inline-block;
             width: 750px;
             transition: all .1s ease-out;
+            height: 50px;
             &:hover {
                 background: rgba(0, 0, 0, .05);
                 #textfield {
@@ -81,6 +82,18 @@ h1,h2,h3,h4,h5,h6,ul,li,p,a,div {
                         }
                     }
                 }
+                #textfield {
+                    background: @green - 25;
+                    color: #fff;
+                }
+            }
+            &.editing {
+                .title {
+                    display: none;
+                }
+                #textfield {
+                    display: inline-block;
+                }
             }
             .checkbox {
                 -webkit-appearance: none;
@@ -106,9 +119,6 @@ h1,h2,h3,h4,h5,h6,ul,li,p,a,div {
                 font-size: 1.3em;
                 margin-left: 15px;
                 cursor: pointer;
-                &.hide {
-                    visibility: hidden;
-                }
             }
             #textfield {
                 margin-left: 10px;
@@ -116,15 +126,13 @@ h1,h2,h3,h4,h5,h6,ul,li,p,a,div {
                 font-family: "Roboto";
                 box-sizing: border-box;
                 border: transparent;
-                background: #eee;
+                background: #fff;
                 padding: 7px 15px;
                 font-size: 1.2em;
                 color: #444;
                 width: 300px;
-                visibility: hidden;
-                &.active {
-                    visibility: visible;
-                }
+                display: none;
+                border-radius: 3px;
             }
             .btn-container {
                 float: right;
