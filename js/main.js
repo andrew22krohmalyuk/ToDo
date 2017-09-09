@@ -7,7 +7,7 @@ const modalContainer = document.getElementById('modal-container');
 const modalWindow = document.getElementById('modal-window');
 const closeBtn = document.getElementById('btn-close');
 
-addBtn.addEventListener('click',addTodoItem);
+
 closeBtn.addEventListener('click', function(){
     alert('off');
 });
@@ -88,7 +88,6 @@ function toggleTodoItem() {
     const listItem = this.parentNode;
     listItem.classList.toggle('completed');
 }
-
 function editTodoItem() {
     const listItem = this.parentNode.parentNode;
     const title = listItem.querySelector('.title');
@@ -107,8 +106,14 @@ function editTodoItem() {
     }
     listItem.classList.toggle('editing');
 }
-
 function deleteTodoItem() {
     const listItem = this.parentNode.parentNode;
     todoList.removeChild(listItem);
 }
+
+function main() {
+    addBtn.addEventListener('click',addTodoItem);
+    todoItems.forEach(item => bindEvents(item));
+}
+
+main();
